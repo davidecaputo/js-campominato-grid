@@ -12,6 +12,7 @@ main{
     width: 100%;
     height: calc(100% - 200px);
     background-color: rgb(14, 196, 224);
+    overflow-y: auto;
 }
 
 header img{
@@ -24,4 +25,17 @@ header img{
     width: 600px;
     height: 600px;
     border: 1px solid black;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.square{
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    cursor: pointer;
 }
