@@ -36,3 +36,7 @@ header img{
     font-size: 30px;
     cursor: pointer;
 }
+
+.safe{
+    background-color: blue;
+}
