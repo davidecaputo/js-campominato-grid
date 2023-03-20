@@ -8,9 +8,17 @@
 const form = document.querySelector('form');
 form.addEventListener('submit', play);
 
+function createSquares(numSquare, squareSize){
+    const grill = document.querySelector('.grill');
+    grill.innerHTML += `
+        <div class="square" style="width: calc(100% / ${squareSize}); height: calc(100% / ${squareSize});">${numSquare}</div>
+    `
+}
 
 function play(e){
     e.preventDefault();
+    const grill = document.querySelector('.grill');
+    grill.innerHTML = '';
     const difficulty = document.getElementById('level').value;
     let square = 0;
     let squareSize = 0;
@@ -34,6 +42,6 @@ function play(e){
     
     console.log(squareSize);
     for(let i = 1; i <= square; i++){
-        
+        createSquares(i, squareSize);
     }
 }
