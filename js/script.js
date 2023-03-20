@@ -34,6 +34,6 @@ function play(e){
     
     console.log(squareSize);
     for(let i = 1; i <= square; i++){
-
+        
     }
 }
