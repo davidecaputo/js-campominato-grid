@@ -10,9 +10,32 @@
 </head>
 <body>
     <div id="wrapper">
-        <header></header>
-        <main></main>
-        <footer></footer>
+        <header>
+            <div class="container-fluid d-flex justify-content-between align-items-center h-100">
+                <div class="d-flex align-items-center w-50 gap-2">
+                    <img src="./img/campo_minato_gioco_1989.png" alt="logo">
+                    <h1>Campo Minato</h1>
+                </div>
+                <form class="d-flex align-items-center gap-2 w-25">
+                    <label>Difficoltà:</label>
+                    <select name="livello" id="livello" class="form-select" aria-label="Default select example">
+                        <option value="easy" selected>Facile</option>
+                        <option value="medium">Media</option>
+                        <option value="hard">Difficile</option>
+                    </select>
+                    <button class="btn btn-danger">Gioca</button>
+                </form>
+            </div>
+        </header>
+        <main class="d-flex flex-column justify-content-center align-items-center gap-5">
+            <div class="grill">
+
+            </div>
+            <h2 class="text-white">Seleziona il livello di difficoltà  </h2>
+        </main>
+        <footer class="container-fluid d-flex align-items-center fs-4">
+            Made with &hearts; by Davide
+        </footer>
     </div>
     
     <script type="text/javascript" src="./js/script.js"></script>

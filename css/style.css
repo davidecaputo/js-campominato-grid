@@ -13,3 +13,15 @@ main{
     height: calc(100% - 200px);
     background-color: rgb(14, 196, 224);
 }
+
+header img{
+    width: 10%;
+    height: 90%;
+    border-radius: 20px;
+}
+
+.grill{
+    width: 600px;
+    height: 600px;
+    border: 1px solid black;
+}
