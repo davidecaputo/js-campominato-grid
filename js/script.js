@@ -6,45 +6,47 @@
 */
 
 const form = document.querySelector('form');
-form.addEventListener('submit', play);
 const grill = document.querySelector('.grill');
+form.addEventListener('submit', play);
 
-function createSquares(numSquare, squareSize){
-    grill.innerHTML += `
-        <div class="square" style="width: calc(100% / ${squareSize}); height: calc(100% / ${squareSize});">${numSquare}</div>
-    `
+function createSquares(i, squareSize){
+    const square = document.createElement('div');
+    square.classList.add('square');
+    square.style = `width: calc(100% / ${squareSize}); height: calc(100% / ${squareSize});`;
+    square.innerHTML = i;
+    return square;
 }
 
 function play(e){
     e.preventDefault();
     grill.innerHTML = '';
     const difficulty = document.getElementById('level').value;
-    let square = 0;
+    const numberOfBombs = 16;
+    let numSquare = 0;
     let squareSize = 0;
     switch (difficulty) {
         case "easy":
             console.log('facile');
-            square = 100;
+            numSquare = 100;
             squareSize = 10;
             break;
         case "medium":
             console.log('medio');
-            square = 81;
+            numSquare = 81;
             squareSize = 9;
             break;
         case "hard":
             console.log('difficile');
-            square = 49;
+            numSquare = 49;
             squareSize = 7;
-            break;      
+            break;   
     }
-    
-    console.log(squareSize);
-    for(let i = 1; i <= square; i++){
-        createSquares(i, squareSize);
+
+    for(let i = 1; i <= numSquare; i++){
+        const square = createSquares(i, squareSize);
+        square.addEventListener('click', function(){
+            square.classList.add('safe');
+        })
+        grill.appendChild(square);
     }
-    const safe = document.querySelector('.square');
-    safe.addEventListener('click', function(){
-        safe.classList.add('safe');
-    })
 }
