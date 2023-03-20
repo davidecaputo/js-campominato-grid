@@ -17,6 +17,21 @@ function createSquares(i, squareSize){
     return square;
 }
 
+function createBombs(numberOfBombs, numSquare){
+    const bombs = [];
+    while(bombs.length <= numberOfBombs){
+        const bomb = getRndInteger(1, numSquare);
+        if(!bombs.includes(bomb)){
+            bombs.push(bomb);
+        }
+    }
+    return bombs;
+}
+
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
 function play(e){
     e.preventDefault();
     grill.innerHTML = '';
@@ -41,6 +56,9 @@ function play(e){
             squareSize = 7;
             break;   
     }
+
+    const bombs = createBombs(numberOfBombs, numSquare);
+    console.log(bombs);
 
     for(let i = 1; i <= numSquare; i++){
         const square = createSquares(i, squareSize);
