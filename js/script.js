@@ -19,7 +19,7 @@ function createSquares(i, squareSize){
 
 function createBombs(numberOfBombs, numSquare){
     const bombs = [];
-    while(bombs.length <= numberOfBombs){
+    while(bombs.length < numberOfBombs){
         const bomb = getRndInteger(1, numSquare);
         if(!bombs.includes(bomb)){
             bombs.push(bomb);
@@ -58,12 +58,33 @@ function play(e){
     }
 
     const bombs = createBombs(numberOfBombs, numSquare);
+    let messageOutput = document.querySelector('h2');
+    messageOutput.innerHTML = `Seleziona il livello di difficoltà`;
+    console.log(messageOutput);
+    let scoring = 1;
+    let gameOver = false;
     console.log(bombs);
 
     for(let i = 1; i <= numSquare; i++){
         const square = createSquares(i, squareSize);
         square.addEventListener('click', function(){
-            square.classList.add('safe');
+            if(!gameOver && !square.classList.contains('safe')){
+                if(bombs.includes(i)){
+                    square.classList.add('lose');
+                    messageOutput.innerHTML = `Hai perso!!!! Il tuo punteggio è ${scoring - 1}`;
+                    gameOver = true;
+                } else {
+                    square.classList.add('safe');
+                    if(scoring === numSquare - numberOfBombs){
+                        messageOutput.innerHTML = `Hai vinto!!!! Sei riuscito a trovare tutti i quadratini dove non erano presenti le bombe. Il tuo punteggio è: ${scoring}`;
+                        gameOver = true;
+                    } else {
+                        console.log(numSquare - numberOfBombs)
+                        messageOutput.innerHTML = `Punteggio: ${scoring}`;
+                    }
+                    scoring++;
+                }
+            }
         })
         grill.appendChild(square);
     }

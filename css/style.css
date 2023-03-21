@@ -41,3 +41,8 @@ header img{
     background-color: blue;
     color: white;
 }
+
+.lose{
+    background-color: red;
+    color: white;
+}
