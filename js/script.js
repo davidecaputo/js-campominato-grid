@@ -13,7 +13,7 @@ function createSquares(i, squareSize){
     const square = document.createElement('div');
     square.classList.add('square');
     square.style = `width: calc(100% / ${squareSize}); height: calc(100% / ${squareSize});`;
-    square.innerHTML = i;
+    square.innerHTML = `<span class="opacity-0">${i}</span>`;
     return square;
 }
 
